@@ -4,5 +4,5 @@ public interface Stack {
 	void push(int value);
 	int pop();
 	boolean isEmpty();
-
+	int getTop();
 }

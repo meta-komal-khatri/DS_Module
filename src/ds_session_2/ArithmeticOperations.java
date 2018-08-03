@@ -10,6 +10,7 @@ public class ArithmeticOperations {
 		case "+":
 			result=a+b;
 			return result;
+			
 		case "-":
 			result=a-b;
 			return result;
@@ -18,7 +19,8 @@ public class ArithmeticOperations {
 			return result;
 		case "/":
 			try{
-				result=a/b;
+				result=(int) b/a;
+				System.out.println(result);
 				return result;
 			}
 			catch(ArithmeticException exception){

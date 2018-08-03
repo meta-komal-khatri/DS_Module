@@ -47,5 +47,8 @@ public class ArrayStack implements Stack{
 	public boolean isEmpty(){
 		return top==-1;
 	}
+	public int getTopElement() {
+		return arrayStack[top];
+	}
 
 }
