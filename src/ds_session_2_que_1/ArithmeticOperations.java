@@ -1,4 +1,4 @@
-package ds_session_2;
+package ds_session_2_que_1;
 
 public class ArithmeticOperations {
 
