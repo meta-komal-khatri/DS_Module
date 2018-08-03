@@ -4,22 +4,29 @@ public class ArithmeticOperations {
 
 	public ArithmeticOperations() {
 	}
-	public int arithmeticOperations(int a,int b,String operator){
+	/**
+	 * performs arithmetic operation
+	 * @param a
+	 * @param b
+	 * @param operator
+	 * @return
+	 */
+	public int arithmeticOperations(int firstNumber,int secondNumber,String operator){
 		int result;
 		switch(operator){
 		case "+":
-			result=a+b;
+			result=firstNumber+secondNumber;
 			return result;
 			
 		case "-":
-			result=a-b;
+			result=secondNumber-secondNumber;
 			return result;
 		case "*":
-			result=a*b;
+			result=firstNumber*secondNumber;
 			return result;
 		case "/":
 			try{
-				result=(int) b/a;
+				result=(int) secondNumber/firstNumber;
 				System.out.println(result);
 				return result;
 			}
@@ -33,3 +40,4 @@ public class ArithmeticOperations {
 	}
 	
 }
+    
