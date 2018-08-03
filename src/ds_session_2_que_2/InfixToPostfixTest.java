@@ -14,5 +14,14 @@ public class InfixToPostfixTest {
 		assertEquals("1 3 4 5 / 4 * + + ",infixToPstfix.infixToPostfix("1 + 3 + ( 4 / 5 ) * 4"));
 		
 	}
-
+	@Test
+	public void exceptionTest() {
+		try {
+			String result=infixToPstfix.infixToPostfix("");
+		}
+		catch(NullPointerException error) {
+			
+		}
+		
+	}
 }

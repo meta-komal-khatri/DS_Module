@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class PostfixEvaluationTest {
+public class PostfiEvaluationTest {
 	PostfixEquationEvaluation postfixEquationEvaluation=new PostfixEquationEvaluation();
 	@Test
 	public void postfixEquationEvaluationTest() {
