@@ -15,12 +15,12 @@ public class GetProgramListFromExcel{
 		List<Program> excelProgramList=new LinkedList<Program>();
 		try{
 			
-			Workbook workbook = Workbook.getWorkbook(new java.io.File("C:\\Users\\User30\\Documents\\sheet.xls"));
+			Workbook workbook = Workbook.getWorkbook(new java.io.File("C:\\Users\\User30\\Downloads\\Program.xls"));
 			Sheet sheet1 = workbook.getSheet(0);
-			String[] programArray=new String[sheet1.getColumns()];
+			String[] programArray;
 			for(int i=0;i<sheet1.getRows();i++){
-				for(int j=0;i<sheet1.getColumns();j++){
-
+				programArray=new String[sheet1.getColumns()];
+				for(int j=0;j<sheet1.getColumns();j++){
 
 					programArray[j]= sheet1.getCell(j,i).getContents();
 
