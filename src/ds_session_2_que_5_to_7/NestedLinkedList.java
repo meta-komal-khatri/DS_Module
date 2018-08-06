@@ -1,4 +1,4 @@
-package ds_session_2_que_5;
+package ds_session_2_que_5_to_7;
 
 import java.util.ArrayList;
 import java.util.List;
