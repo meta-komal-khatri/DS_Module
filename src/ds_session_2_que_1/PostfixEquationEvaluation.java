@@ -31,10 +31,11 @@ public class PostfixEquationEvaluation {
 		for(String token:tokenizedEquation){
 			//if token is operator pop first 2 values from stack and perform operation
 			if("+".equals(token) || "-".equals(token) || "*".equals(token) || "/".equals(token)){
-
 				firstPoppedValue=stack.pop();
 				secondPoppdeValue=stack.pop();
-				stack.push(calculate.arithmeticOperations(firstPoppedValue, secondPoppdeValue, token));
+				int x=calculate.arithmeticOperations(firstPoppedValue, secondPoppdeValue, token);
+				stack.push(x);
+				System.out.println(x);
 
 			}
 			//if token is operand ,push operand
@@ -43,7 +44,8 @@ public class PostfixEquationEvaluation {
 			}
 
 		}
-		return stack.pop();
+		int v=stack.pop();
+		return v;
 	}
 
 

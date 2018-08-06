@@ -19,7 +19,7 @@ public class ArithmeticOperations {
 			return result;
 			
 		case "-":
-			result=secondNumber-secondNumber;
+			result=firstNumber-secondNumber;
 			return result;
 		case "*":
 			result=firstNumber*secondNumber;
@@ -27,7 +27,6 @@ public class ArithmeticOperations {
 		case "/":
 			try{
 				result=(int) secondNumber/firstNumber;
-				System.out.println(result);
 				return result;
 			}
 			catch(ArithmeticException exception){

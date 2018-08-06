@@ -6,11 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jxl.Workbook;
+import jxl.read.biff.BiffException;
 import jxl.write.Label;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException;
+
+
 
 public class CollegeCounselling {
 	private College college;
@@ -24,49 +27,46 @@ public class CollegeCounselling {
 	public void fetchStudents(){
 		studentQueue=college.getStudentQueue();
 	}
-	public void fetchPrograms(){
+	public void fetchPrograms() {
 		programList=college.getProgram();
 	}
 	public void allocate(){
-		WritableWorkbook workbook = null;
+		
+
+		WritableWorkbook workbook = null ;
 		try {
-			workbook = Workbook.createWorkbook(new File("C:\\Users\\User30\\DownLoads\\Tempa.xls"));
+			workbook = Workbook.createWorkbook(new File("C:\\Users\\popla\\OneDrive\\Documents\\Tempa.ods"));
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-	       WritableSheet allocatedProgramSheet = workbook.createSheet("Sheet 1", 0);
-	       Label label = new Label(0, 0, "Student Name");
-	       try {
-			allocatedProgramSheet.addCell(label);
-		} catch (RowsExceededException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (WriteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	       label = new Label(1, 0, "Program name");
-	       try {
-			allocatedProgramSheet.addCell(label);
-		} catch (RowsExceededException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (WriteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	                
-	       
+		WritableSheet allocatedProgramSheet = workbook.createSheet("Sheet 1", 0);
+
 		fetchStudents();
 		fetchPrograms();
-		for(int i=0;i<studentQueue.size();i++){
+		int size=studentQueue.size();
+		for(int i=0;i<size;i++){
 			System.out.println(studentQueue.size());
-			for(String preference:studentQueue.getElement().getPrefernce()){
+			outer:for(String preference:studentQueue.getElement().getPrefernce()){
 				for(Program program:programList){
 					if(preference.equals(program.getProgramName()) && program.capacityOfProgram>0){
-						
-						
+
+						try {
+							System.out.println(studentQueue.getElement().getName());
+							System.out.println(program.getProgramName());
+							allocatedProgramSheet.addCell(new Label(0,i,studentQueue.getElement().getName()));
+							allocatedProgramSheet.addCell(new Label(1,i,program.getProgramName()));
 							
+						} catch (RowsExceededException e) {
+							
+							e.printStackTrace();
+						} catch (WriteException e) {
+						
+							e.printStackTrace();
+						}
+						program.capacityOfProgram--;
+						studentQueue.dequeue();
+						break outer;
+
 					}
 				}
 			}
@@ -78,5 +78,5 @@ public class CollegeCounselling {
 			e.printStackTrace();
 		}
 	}
-	
+
 }

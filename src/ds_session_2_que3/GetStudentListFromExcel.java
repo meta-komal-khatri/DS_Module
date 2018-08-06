@@ -15,7 +15,7 @@ public class GetStudentListFromExcel {
 		List<String> preferences;
 		try{
 		
-			Workbook workbook = Workbook.getWorkbook(new java.io.File("C:\\Users\\User30\\Downloads\\Student.xls"));
+			Workbook workbook = Workbook.getWorkbook(new java.io.File("C:\\Users\\popla\\OneDrive\\Documents\\Student.xls"));
 			Sheet sheet1 = workbook.getSheet(0);
 			String studentName=null;
 			String programArray = null;
