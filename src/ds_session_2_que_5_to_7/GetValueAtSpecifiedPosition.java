@@ -21,7 +21,7 @@ public class GetValueAtSpecifiedPosition {
 			switch(specifiedPositionCahracter) {
 			//if string character is T
 			case 'T':
-			nestedListObject=((List<Object>) nestedListObject).get(((List<Object>) nestedListObject).size()-1);
+				nestedListObject=((List<Object>) nestedListObject).get(((List<Object>) nestedListObject).size()-1);
 				if(i!=specifiedPosition.length()-1) {
 					//throws error if string has more character and object at specified position is an Integer
 					if(nestedListObject instanceof Integer) {
@@ -36,9 +36,9 @@ public class GetValueAtSpecifiedPosition {
 						throw new AssertionError("Should be an instance of Integer");
 					}
 				}
-				
-			
-			
+
+
+
 				break; 
 			case 'H':
 				nestedListObject=((List<Object>) nestedListObject).get(0);
@@ -57,7 +57,7 @@ public class GetValueAtSpecifiedPosition {
 						throw new AssertionError("Should be an instance of Integer");
 					}
 				}
-			break;
+				break;
 			default:
 				throw new IllegalStateException("Wrong String Input");
 			}

@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class NestdeLinkedListImplementation implements NestedList {
-	
+
 	static NestedLinkedList nestedLinkedList1=new NestedLinkedList();
 	static NestedLinkedList nestedLinkedList2=new NestedLinkedList();
 	static NestedLinkedList nestedLinkedList3=new NestedLinkedList();
