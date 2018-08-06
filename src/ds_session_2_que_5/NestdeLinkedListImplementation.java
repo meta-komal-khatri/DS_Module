@@ -26,8 +26,8 @@ public class NestdeLinkedListImplementation {
 	/**
 	 * If element of list is an Integer than it directly adds it to sum
 	 * else it recursively call sum method for nested list
-	 * @param nestedList higher level nested list
-	 * @return sum of all elemnts in nested list
+	 * @param nestedList first level nested list
+	 * @return sum of all elements in nested list
 	 */
 	@SuppressWarnings("unchecked")
 	public int sum(List<Object> nestedList){
@@ -44,10 +44,11 @@ public class NestdeLinkedListImplementation {
 		return sum;
 	}
 	/**
-	 * If list element is an Integer 
-	 * @param nestedList
-	 * @param max
-	 * @return
+	 * If list element is an Integer than it checks for max value 
+	 * else recursively find maximum element
+	 * @param nestedList first level of nested list
+	 * @param max 
+	 * @return maximum value integer from nested List
 	 */
 	@SuppressWarnings("unchecked")
 	public int largestValue(List<Object> nestedList,int max){
@@ -64,6 +65,13 @@ public class NestdeLinkedListImplementation {
 		}
 		return maxValue;
 	}
+	/**
+	 * recursively finds element in nested list 
+	 * @param nestedList first level of nested list
+	 * @param value that is to be found
+	 * @return list of integer such that first value of list shows index in first level list 
+	 * 		   second value shows index in second level so on.
+	 */
 	public List<Integer> findValue(List<Object> nestedList,int value){
 		List<Integer> foundIndex=new ArrayList<Integer>();
 		int find=0;
