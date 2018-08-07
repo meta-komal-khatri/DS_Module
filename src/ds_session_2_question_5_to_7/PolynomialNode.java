@@ -16,13 +16,6 @@ public class PolynomialNode {
 	PolynomialNode(int coefficient, List<VariableNode> variableList){
 		this.setCoefficient(coefficient);
 		this.setVariableList(variableList);
-		/*if(variable.length != 0) {
-			this.firstTermOfVariableList = new VariableList(variable[0][0], variable[0][1]);
-			VariableList variableList = this.firstTermOfVariableList;
-			for(int i=1; i<variable.length; i++) {
-				variableList.setNextVariableList( new VariableList(variable[i][0], variable[i][1]));
-				variableList = variableList.getNextVariableList();
-			}*/
 	
 	}
 	public int getCoefficient() {
