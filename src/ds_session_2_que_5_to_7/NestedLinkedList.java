@@ -1,10 +1,10 @@
-package ds_session_2_que_5;
+package ds_session_2_que_5_to_7;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class NestedLinkedList {
-	List<Object> nestedList=new ArrayList<Object>();
+	private List<Object> nestedList=new ArrayList<Object>();
 	
 	public void addValue(int data){
 		nestedList.add(data);

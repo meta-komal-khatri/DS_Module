@@ -1,11 +1,11 @@
-package ds_session_2_que_5;
+package ds_session_2_que_5_to_7;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class NestdeLinkedListImplementation {
-	
+public class NestdeLinkedListImplementation implements NestedList {
+
 	static NestedLinkedList nestedLinkedList1=new NestedLinkedList();
 	static NestedLinkedList nestedLinkedList2=new NestedLinkedList();
 	static NestedLinkedList nestedLinkedList3=new NestedLinkedList();
@@ -31,17 +31,25 @@ public class NestdeLinkedListImplementation {
 	 */
 	@SuppressWarnings("unchecked")
 	public int sum(List<Object> nestedList){
+		if(nestedList.size()==0) {
+			throw new AssertionError("List is empty");
+		}
 		int sum=0;
 
 		for(Object nested:nestedList){
+			//if object is an Integer ,add directly to sum
 			if(nested instanceof Integer){
 				sum=sum + (int)nested;
 			}
+			//if object is also a list ,it recursively calls sum method
 			else if(nested instanceof List){
 				sum=sum+sum((List<Object>) nested);
 			}
 		}
 		return sum;
+	}
+	public int largestValue(List<Object> nestedList) {
+		return largestValue(nestedList,0);
 	}
 	/**
 	 * If list element is an Integer than it checks for max value 
@@ -51,14 +59,19 @@ public class NestdeLinkedListImplementation {
 	 * @return maximum value integer from nested List
 	 */
 	@SuppressWarnings("unchecked")
-	public int largestValue(List<Object> nestedList,int max){
+	private int largestValue(List<Object> nestedList,int max){
+		if(nestedList.size()==0) {
+			throw new AssertionError("List is empty");
+		}
 		int maxValue=max;
 		for(Object nested:nestedList){
+			//if object is an Integer ,compare directly with max
 			if(nested instanceof Integer){
 				if(maxValue<(int) nested){
 					maxValue=(int) nested;
 				}
 			}
+			//if object is a list it recursively calls largestValue method
 			else if(nested instanceof List){
 				maxValue=largestValue(((List<Object>) nested),maxValue);
 			}
@@ -73,34 +86,36 @@ public class NestdeLinkedListImplementation {
 	 * 		   second value shows index in second level so on.
 	 */
 	public List<Integer> findValue(List<Object> nestedList,int value){
+		if(nestedList.size()==0) {
+			throw new AssertionError("List is empty");
+		}
 		List<Integer> foundIndex=new ArrayList<Integer>();
-		int find=0;
+		int index=0;
 		for(Object nested:nestedList){
-
+			//object is an integer it directly checks value
 			if(nested instanceof Integer){
-
 				if(value==(int) nested){
-
-					foundIndex.add(find);
+					foundIndex.add(index);
 					return foundIndex;
 				}
 			}
+			//object is a list it recursively call findValue method
 			else if(nested instanceof List){
-				foundIndex.add(find);
-
+				foundIndex.add(index);
 				List<Integer> indexList=findValue((List<Object>) nested,value);
+				//if value is found in nested list then it will return a list of index
 				if(indexList.size()>0){
-
-					for(Integer index:indexList){
-						foundIndex.add(index);
+					for(Integer indexfromList:indexList){
+						foundIndex.add(indexfromList);
 					}
 					return foundIndex;
 				}
+				//value was not found in list at current index, so remove index from found index 
 				else{
 					foundIndex.remove(foundIndex.size()-1);
 				}
 			}
-			find++;
+			index++;
 		}
 		return foundIndex;
 	}
