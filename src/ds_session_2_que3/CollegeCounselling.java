@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jxl.Workbook;
-import jxl.read.biff.BiffException;
+
 import jxl.write.Label;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
@@ -73,6 +73,15 @@ public class CollegeCounselling {
 		}
 		try {
 			workbook.write();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			workbook.close();
+		} catch (WriteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

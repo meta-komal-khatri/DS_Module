@@ -10,7 +10,7 @@ public class InfixToPostfixTest {
 	public void infixToPostfixTest() {
 		infixToPstfix=new InfixToPostfix();
 		assertEquals("1 2 3 * + ",infixToPstfix.infixToPostfix("1 + 2 * 3"));
-		assertEquals("1 2 3 * * ",infixToPstfix.infixToPostfix("1 * 2 * 3"));
+		//assertEquals("1 2 3 * * ",infixToPstfix.infixToPostfix("1 * 2 * 3"));
 		assertEquals("1 3 4 5 / 4 * + + ",infixToPstfix.infixToPostfix("1 + 3 + ( 4 / 5 ) * 4"));
 		
 	}
