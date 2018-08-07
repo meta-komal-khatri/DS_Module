@@ -1,15 +1,18 @@
 package ds_session_3_question_1;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MyTreeNode<T>{
     private T data = null;
     private List<MyTreeNode<T>> children = new ArrayList<>();
     private MyTreeNode<T> parent = null;
+    private Date date;
 
     public MyTreeNode(T data) {
         this.data = data;
+        setDate(new Date());
     }
 
     public void addChild(MyTreeNode<T> child) {
@@ -49,4 +52,12 @@ public class MyTreeNode<T>{
     public MyTreeNode<T> getParent() {
         return parent;
     }
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
 }
