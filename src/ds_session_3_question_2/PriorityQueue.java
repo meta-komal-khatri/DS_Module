@@ -1,5 +1,7 @@
 package ds_session_3_question_2;
-
+/*
+ * Max heap is used to create PriorityQueue
+ */
 public class PriorityQueue {
 	private Task[] taskHeap;
 	private int capacityOfPriorityQueue,heapSize;
@@ -8,32 +10,62 @@ public class PriorityQueue {
 		taskHeap = new Task[this.capacityOfPriorityQueue];
 		heapSize = 0;
 	}
+	/**
+	 * @return returns heap of priority queue
+	 */
 	public Task[] getHeap() {
 		return taskHeap;
 	}
+	/**
+	 * sets value in heap
+	 * @param heap
+	 */
 	public void setHeap(Task[] heap) {
 		this.taskHeap = heap;
 	}
+	/**
+	 * @return capacity of PriorityQueue
+	 */
 	public int getCapacityOfPriorityQueue() {
 		return capacityOfPriorityQueue;
 	}
+	/**
+	 * sets capacity of priority queue
+	 * @param capacityOfPriorityQueue
+	 */
 	public void setCapacityOfPriorityQueue(int capacityOfPriorityQueue) {
 		this.capacityOfPriorityQueue = capacityOfPriorityQueue;
 	}
+	/**
+	 * checks that priority queue heap is empty or not
+	 * @return true if priority queue heap is empty
+	 */
 	public boolean isEmpty()
 	{
 		return heapSize == 0;
 	}
+	/**
+	 * check that priority queue heap is full or not
+	 * @return true if priority queue heap is full
+	 */
 	public boolean isFull(){
 		return heapSize==taskHeap.length-1;
 	}
-	public void insertIntoPriorityQueue(String job,int capacityOfPriority){
-		Task newJob=new Task(job,capacityOfPriority);
+	/**
+	 * insert a task into priority queue heap 
+	 * parent task priority is higher than its child task priority
+	 * @param job name of task (job)
+	 * @param priority 
+	 */
+	public void insertIntoPriorityQueue(String job,int priority){
+		Task newJob=new Task(job,priority);
 		if(isFull()){
-			throw new AssertionError("Queue is full");
+			throw new ArrayIndexOutOfBoundsException("Queue is full");
 		}
 		taskHeap[++heapSize]=newJob;
 		int pos = heapSize;
+		//insert node at last of heap than traverse heap to check priority
+		//if parents priority is less than child ,replace
 		while (pos != 1 && newJob.getPriority() > taskHeap[pos/2].getPriority())
 		{
 			taskHeap[pos] = taskHeap[pos/2];
@@ -41,6 +73,10 @@ public class PriorityQueue {
 		}
 		taskHeap[pos] = newJob;  
 	}
+	/**
+	 * removes root of priority queue heap
+	 * @return task removed from queue heap
+	 */
 	public Task remove()
 	{
 		int parent, child;

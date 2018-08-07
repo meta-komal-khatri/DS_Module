@@ -7,15 +7,30 @@ public class Task {
 		this.setJob(job);
 		this.setPriority(priority);
 	}
+	/**
+	 * @return job name
+	 */
 	public String getJob() {
 		return job;
 	}
+	/**
+	 * set job name
+	 * @param job
+	 */
 	public void setJob(String job) {
 		this.job = job;
 	}
+	/**
+	 * get priority of task
+	 * @return priority
+	 */
 	public int getPriority() {
 		return priority;
 	}
+	/**
+	 * sets priority of task
+	 * @param priority
+	 */
 	public void setPriority(int priority) {
 		this.priority = priority;
 	}
