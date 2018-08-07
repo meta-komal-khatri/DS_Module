@@ -1,22 +1,22 @@
 package ds_session_2_que_8;
 
 
-public class VariableList {
-	private int variableIndex;
+public class VariableNode {
+	private String variableIndex;
 	private int variablePower;
-	private VariableList nextVariableList;
+	private VariableNode nextVariableList;
 	
-	public VariableList(int variableIndex, int variablePower){
+	public VariableNode(String variableIndex, int variablePower){
 		this.setVariableIndex(variableIndex);
 		this.setVariablePower(variablePower);
 		this.setNextVariableList(null);
 	}
 
-	public int getVariableIndex() {
+	public String getVariableIndex() {
 		return variableIndex;
 	}
 
-	public void setVariableIndex(int variableIndex) {
+	public void setVariableIndex(String variableIndex) {
 		this.variableIndex = variableIndex;
 	}
 
@@ -28,11 +28,11 @@ public class VariableList {
 		this.variablePower = variablePower;
 	}
 
-	public VariableList getNextVariableList() {
+	public VariableNode getNextVariableList() {
 		return nextVariableList;
 	}
 
-	public void setNextVariableList(VariableList nextVariableList) {
+	public void setNextVariableList(VariableNode nextVariableList) {
 		this.nextVariableList = nextVariableList;
 	}
 }
