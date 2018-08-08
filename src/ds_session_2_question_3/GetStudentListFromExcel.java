@@ -10,46 +10,41 @@ import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
 public class GetStudentListFromExcel {
+	/**
+	 * retrieve student list of student name and their 
+	 * top 5 preferences of college program from excel sheet
+	 * @return list of Student
+	 */
 	public StudentQueue<Student> getStudentListFromExcel(){
 		StudentQueue<Student> studentQueue=new StudentQueue<Student>();
 		List<String> preferences;
 		try{
-		
+
 			Workbook workbook = Workbook.getWorkbook(new java.io.File("C:\\Users\\popla\\OneDrive\\Documents\\Student.xls"));
 			Sheet sheet1 = workbook.getSheet(0);
 			String studentName=null;
 			String programArray = null;
-			
+
 			for(int i=0;i<sheet1.getRows();i++){
 				preferences =new ArrayList<String>();
 				for(int j=0;j<sheet1.getColumns();j++){
-		
 					if(j==0){
-					studentName= sheet1.getCell(j,i).getContents();
-	
+						studentName= sheet1.getCell(j,i).getContents();
 					}
 					else{
 						programArray=sheet1.getCell(j,i).getContents();
 						preferences.add(programArray);
-					}
-				
-				
-			
+					}		
 				}	
 				studentQueue.enqueue(new Student(studentName,preferences));
-				
 			}
-			
+
 		} catch (BiffException biffexception) {
-
 			biffexception.printStackTrace();
-
 		} catch (IOException ioexception) {
-
 			ioexception.printStackTrace();
-
 		}
-	return studentQueue;
+		return studentQueue;
 	}
-	}
+}
 

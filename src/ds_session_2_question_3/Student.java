@@ -7,11 +7,6 @@ public class Student {
 	List<String> preferences;
 	/**
 	 * @param name
-	 * @param firstPreference
-	 * @param secondPreference
-	 * @param thirdPreference
-	 * @param forthPreference
-	 * @param fifthPreference
 	 */
 	public Student(String name,List<String> preferences) {
 		this.name=name;

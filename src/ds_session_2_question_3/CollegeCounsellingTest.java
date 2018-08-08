@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import jxl.read.biff.BiffException;
 
-public class GetStudent {
+public class CollegeCounsellingTest {
 
 	@Test
 	public void test() throws BiffException, IOException {

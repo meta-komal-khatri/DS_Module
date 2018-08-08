@@ -18,51 +18,60 @@ public class CollegeCounselling {
 	private College college;
 	private List<Program> programList;
 	private StudentQueue<Student> studentQueue;
+	
+	//initialize with college and program list of college and student list
 	CollegeCounselling(){
 		college=new College();
 		programList=new ArrayList<Program>();
 		studentQueue=new StudentQueue<Student>();
 	}
+	/**
+	 * gets student list from specific college
+	 */
 	public void fetchStudents(){
 		studentQueue=college.getStudentQueue();
 	}
+	
+	/**
+	 * get program list from specific college
+	 */
 	public void fetchPrograms() {
 		programList=college.getProgram();
 	}
+	
+	/**
+	 * allocates college program to students according to their preference order
+	 */
 	public void allocate(){
-		
-
 		WritableWorkbook workbook = null ;
+		//store list of students name and allocated program to them
 		try {
 			workbook = Workbook.createWorkbook(new File("C:\\Users\\popla\\OneDrive\\Documents\\Tempa.ods"));
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
 		WritableSheet allocatedProgramSheet = workbook.createSheet("Sheet 1", 0);
-
+		
 		fetchStudents();
 		fetchPrograms();
-		int size=studentQueue.size();
-		for(int i=0;i<size;i++){
-			System.out.println(studentQueue.size());
+		
+		for(int i=0;i<studentQueue.size();i++){
 			outer:for(String preference:studentQueue.getElement().getPrefernce()){
 				for(Program program:programList){
-					if(preference.equals(program.getProgramName()) && program.capacityOfProgram>0){
+					if(preference.equals(program.getProgramName()) && program.getCapacityOfProgram()>0){
 
 						try {
-							System.out.println(studentQueue.getElement().getName());
-							System.out.println(program.getProgramName());
 							allocatedProgramSheet.addCell(new Label(0,i,studentQueue.getElement().getName()));
 							allocatedProgramSheet.addCell(new Label(1,i,program.getProgramName()));
-							
+
 						} catch (RowsExceededException e) {
-							
+
 							e.printStackTrace();
 						} catch (WriteException e) {
-						
+
 							e.printStackTrace();
 						}
-						program.capacityOfProgram--;
+						program.setCapacityOfProgram(program.getCapacityOfProgram()-1);
 						studentQueue.dequeue();
 						break outer;
 
@@ -73,16 +82,13 @@ public class CollegeCounselling {
 		try {
 			workbook.write();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
 			workbook.close();
 		} catch (WriteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
