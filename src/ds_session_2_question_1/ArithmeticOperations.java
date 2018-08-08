@@ -16,8 +16,7 @@ public class ArithmeticOperations {
 		switch(operator){
 		case "+":
 			result=firstNumber+secondNumber;
-			return result;
-			
+			return result;	
 		case "-":
 			result=firstNumber-secondNumber;
 			return result;

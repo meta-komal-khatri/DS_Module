@@ -1,4 +1,4 @@
-package ds_session_2_question_5_to_7;
+package ds_session_2_question_5;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,14 +6,14 @@ import java.util.List;
 
 public class NestdeLinkedListImplementation implements NestedList {
 
-	static NestedLinkedList nestedLinkedList1=new NestedLinkedList();
-	static NestedLinkedList nestedLinkedList2=new NestedLinkedList();
-	static NestedLinkedList nestedLinkedList3=new NestedLinkedList();
+	public static NestedLinkedList nestedLinkedList1=new NestedLinkedList();
+	//static NestedLinkedList nestedLinkedList2=new NestedLinkedList();
+	//static NestedLinkedList nestedLinkedList3=new NestedLinkedList();
 	/**
 	 * nestedLinkedList1 is basic linked list 
 	 * nestedlikedlist2 and nestedLinkedList3 are branches of nestedLinkedList1
 	 */
-	static{
+	/*static{
 		nestedLinkedList1.addValue(4);
 		nestedLinkedList1.addValue(5);
 		nestedLinkedList1.addValue(7);
@@ -22,7 +22,7 @@ public class NestdeLinkedListImplementation implements NestedList {
 		nestedLinkedList2.addValue(9);
 		nestedLinkedList2.addList(new ArrayList<>(Arrays.asList(1,11,32)));
 		nestedLinkedList1.addList(nestedLinkedList2.getNestedList());
-	}
+	}*/
 	/**
 	 * If element of list is an Integer than it directly adds it to sum
 	 * else it recursively call sum method for nested list

@@ -24,5 +24,15 @@ public class PostfiEvaluationTest {
 		}
 		
 	}
+	@Test
+	public void throwsNullPointerExceptionIfStringIsEmpty() {
+		try {
+			int result=postfixEquationEvaluation.evaluate("");
+		}
+		catch(NullPointerException error) {
+			
+		}
+		
+	}
 
 }

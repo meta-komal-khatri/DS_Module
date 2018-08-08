@@ -11,7 +11,7 @@ public class PostfixEquationEvaluation {
   * if empty throws NullPointerException
   */
 	private void validate(){
-		if(equation==null){
+		if(equation.length()==0){
 			throw new NullPointerException("equation is null");
 		}
 	}
@@ -29,15 +29,15 @@ public class PostfixEquationEvaluation {
 		Stack stack=new ArrayStack(tokenizedEquation.length); 
 		int firstPoppedValue,secondPoppdeValue;
 		for(String token:tokenizedEquation){
+			
 			//if token is operator pop first 2 values from stack and perform operation
 			if("+".equals(token) || "-".equals(token) || "*".equals(token) || "/".equals(token)){
 				firstPoppedValue=stack.pop();
 				secondPoppdeValue=stack.pop();
 				int x=calculate.arithmeticOperations(firstPoppedValue, secondPoppdeValue, token);
 				stack.push(x);
-				System.out.println(x);
-
 			}
+			
 			//if token is operand ,push operand
 			else{
 				stack.push(Integer.parseInt(token));

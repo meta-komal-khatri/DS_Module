@@ -38,6 +38,7 @@ class ArrayCircularQueueTest {
 		assertEquals(6,arrayQueue.dequeue());
 		assertEquals(7,arrayQueue.dequeue());
 		assertNotEquals(1,arrayQueue.dequeue());
+		
 		//throws AssertionError when queue is empty
 		try {
 			arrayQueue.dequeue();

@@ -8,6 +8,36 @@ public class InfixToPostfix {
 	public InfixToPostfix() {
 		stack=new Stack<String>();
 	}
+	/**
+	 * method to check pattern
+	 * @param tokens
+	 */
+	private void validate(String[] tokens){
+		for(int i=0;i<tokens.length-1;i++){
+			if("+".equals(tokens[i]) || "-".equals(tokens[i]) || "*".equals(tokens[i]) || "/".equals(tokens[i])
+					){
+				if("+".equals(tokens[i+1]) || "-".equals(tokens[i+1]) || "*".equals(tokens[i+1]) || "/".equals(tokens[i+1])
+						){
+					throw new AssertionError("Pattern mismatch");
+				}
+			}
+			if(")".equals(tokens[i]))
+			{
+				if(!"+".equals(tokens[i+1]) && !"-".equals(tokens[i+1]) && !"*".equals(tokens[i+1]) && !"/".equals(tokens[i+1])
+					){
+					throw new AssertionError("Pattern mismatch");
+				}
+			}
+			if("(".equals(tokens[i]))
+			{
+				if(!"+".equals(tokens[i-1]) && !"-".equals(tokens[i-1]) && !"*".equals(tokens[i-1]) && !"/".equals(tokens[i-1])
+					){
+					throw new AssertionError("Pattern mismatch");
+				}
+			}
+			
+		}
+	}
 
 	/**
 	 * checks operator precedence
@@ -61,6 +91,7 @@ public class InfixToPostfix {
 	 */
 	public String infixToPostfix(String equation){
 		String[] equationTokenArray=initialize(equation);
+		validate(equationTokenArray);
 		for(String tokens:equationTokenArray){
 			//token is an operator
 			if("+".equals(tokens) || "-".equals(tokens) || "*".equals(tokens) 

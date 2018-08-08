@@ -33,5 +33,15 @@ public class MatchFixingTest {
 		}
 		
 	}
+	@Test(expected=AssertionError.class)
+	public void throwsErrorIfBallsAreNotDividedProperly(){
+		BowlerList bowlerList=new BowlerList();
+		bowlerList.addBowlersToList("Bowler1", 3);
+		bowlerList.addBowlersToList("Bowler2", 2);
+		bowlerList.addBowlersToList("Bowler3", 5);
+		bowlerList.addBowlersToList("Bowler4", 2);
+		matchFixing=new MatchFixing(4, 11,bowlerList.getBowlerList() );
+		matchFixing.setBowlersOrder();
+	}
 
 }

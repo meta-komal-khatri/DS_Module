@@ -1,4 +1,4 @@
-package ds_session_2_question_5_to_7;
+package ds_session_2_question_8;
 
 
 public class VariableNode {

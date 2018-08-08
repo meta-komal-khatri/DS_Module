@@ -1,4 +1,4 @@
-package ds_session_2_question_5_to_7;
+package ds_session_2_question_7;
 import java.util.List;
 
 public class GetValueAtSpecifiedPosition {
@@ -15,14 +15,20 @@ public class GetValueAtSpecifiedPosition {
 	 */
 	public int getValue(List<Object> nestedList,String specifiedPosition) {
 		Object nestedListObject=nestedList;
+		
+		validate(nestedList,specifiedPosition);
+		
 		char specifiedPositionCahracter;
 		for(int i=0;i<specifiedPosition.length();i++) {
+			
 			specifiedPositionCahracter=specifiedPosition.charAt(i);
 			switch(specifiedPositionCahracter) {
+			
 			//if string character is T
 			case 'T':
 				nestedListObject=((List<Object>) nestedListObject).get(((List<Object>) nestedListObject).size()-1);
 				if(i!=specifiedPosition.length()-1) {
+					
 					//throws error if string has more character and object at specified position is an Integer
 					if(nestedListObject instanceof Integer) {
 						throw new AssertionError("Should be an instance of list");   					} 
@@ -63,5 +69,18 @@ public class GetValueAtSpecifiedPosition {
 			}
 		}
 		return 0;
+	}
+	/**
+	 * validate equation 
+	 * @param nestedList
+	 * @param specifiedPosition
+	 */
+	private void validate(List<Object> nestedList,String specifiedPosition){
+		if(nestedList.size()==0){
+			throw new NullPointerException("List is empty");
+		}
+		if(specifiedPosition.length()==0){
+			throw new AssertionError("NoSpecified Position");
+		}
 	}
 }
