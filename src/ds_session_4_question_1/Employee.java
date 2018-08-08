@@ -15,22 +15,41 @@ public class Employee {
 		this.address.putAll(address);
 		
 	}
+	/**
+	 * @return the id
+	 */
 	public int getId() {
 		return id;
 	}
+	/**
+	 * @param id the id to set
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
+	/**
+	 * @return the name
+	 */
 	public String getName() {
 		return name;
 	}
+	/**
+	 * @param name the name to set
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-	public void setAddres(Map<String,String> address){
-		this.address.putAll(address);
-	}
-	public Map<String,String> getAddress(){
+	/**
+	 * @return the address
+	 */
+	public Map<String, String> getAddress() {
 		return address;
 	}
+	/**
+	 * @param address the address to set
+	 */
+	public void setAddress(Map<String, String> address) {
+		this.address = address;
+	}
+
 }

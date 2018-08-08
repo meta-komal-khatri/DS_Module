@@ -10,6 +10,9 @@ import org.junit.Test;
 
 public class SortByEmployeeNameTest {
 
+	/**
+	 * test to check ordering of received list from sortEmployeeByName method
+	 */
 	@Test
 	public void test() {
 		CollectionOfEmployee collectionOfEmployee=new CollectionOfEmployee();

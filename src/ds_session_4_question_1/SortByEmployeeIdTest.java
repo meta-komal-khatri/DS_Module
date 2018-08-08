@@ -11,7 +11,7 @@ import org.junit.Test;
 public class SortByEmployeeIdTest {
 
 	@Test
-	public void test() {
+	public void sortEmployeeByNameTest() {
 		CollectionOfEmployee collectionOfEmployee=new CollectionOfEmployee();
 		collectionOfEmployee.addEmployee(1,"Komal", "23", "asd", "kdscity");
 		collectionOfEmployee.addEmployee(3,"Ram", "12", "ghj", "srigan");
