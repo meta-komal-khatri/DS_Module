@@ -11,7 +11,7 @@ import org.json.simple.parser.ParseException;
 public class InitializeDicitonaryJSONObject {
 	
 	public JSONObject createJsonObject() throws FileNotFoundException, IOException, ParseException{
-		Object obj = new JSONParser().parse(new FileReader("C:\\Users\\User30\\Downloads\\Dictionary.json.txt"));
+		Object obj = new JSONParser().parse(new FileReader("C:\\Users\\popla\\Desktop\\Dictionary.json.txt"));
 		JSONObject object = (JSONObject) obj;	
 		return object;
 	}

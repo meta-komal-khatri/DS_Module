@@ -66,6 +66,6 @@ public class Word {
 	
 		this.meaning=meaning;
 	}
-	
+
 	
 }
